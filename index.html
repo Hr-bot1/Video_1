@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Mode Activated</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    /* Glitch Effect */
+    .glitch {
+      position: relative;
+      display: inline-block;
+      font-size: 3em;
+      font-weight: bold;
+      color: white;
+    }
+
+    .glitch:before,
+    .glitch:after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: lime;
+      background: black;
+      overflow: hidden;
+      clip: rect(0, 900px, 0, 0);
+      animation: glitch 1s infinite;
+    }
+
+    .glitch:after {
+      left: 2px;
+      text-shadow: -1px 0 red;
+    }
+
+    @keyframes glitch {
+      0% { clip: rect(8px, 9999px, 41px, 0); transform: skew(0.52deg); }
+      10% { clip: rect(28px, 9999px, 79px, 0); transform: skew(0.72deg); }
+      20% { clip: rect(99px, 9999px, 40px, 0); transform: skew(0.85deg); }
+      30% { clip: rect(60px, 9999px, 40px, 0); transform: skew(1deg); }
+      40% { clip: rect(11px, 9999px, 45px, 0); transform: skew(0.6deg); }
+      50% { clip: rect(22px, 9999px, 80px, 0); transform: skew(0.5deg); }
+      60% { clip: rect(30px, 9999px, 20px, 0); transform: skew(0.7deg); }
+      70% { clip: rect(50px, 9999px, 5px, 0); transform: skew(0.3deg); }
+      80% { clip: rect(18px, 9999px, 70px, 0); transform: skew(0.8deg); }
+      90% { clip: rect(40px, 9999px, 30px, 0); transform: skew(0.65deg); }
+      100% { clip: rect(80px, 9999px, 60px, 0); transform: skew(1deg); }
+    }
+
+    /* Terminal Typing Effect */
+    .console {
+      font-size: 1.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.1em solid #00ff00;
+      width: 0;
+      animation: type 5s steps(40) infinite, blink 0.75s step-end infinite;
+      color: lime;
+      margin-top: 20px;
+    }
+
+    @keyframes type {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      0% { border-color: transparent; }
+      50% { border-color: lime; }
+      100% { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Glitch Effect Text -->
+    <div class="glitch" data-text="Hacked Successfully!">Hacked Successfully!</div>
+
+    <!-- Terminal Typing Effect -->
+    <div class="console">Initializing system... Please wait...</div>
+  </div>
+
+  <script>
+    // JavaScript to dynamically change text or trigger more hacker effects
+    window.onload = function() {
+      const glitchText = document.querySelector('.glitch');
+      glitchText.setAttribute('data-text', 'System Breach Detected!');
+      glitchText.innerText = 'System Breach Detected!';
+    };
+  </script>
+
+</body>
+</html>
